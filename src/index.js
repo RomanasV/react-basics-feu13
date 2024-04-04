@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
-// import Testimonials from './Testimonials';
-import NewsPage from './NewsPage';
+// import Testimonials from './pages/Testimonials';
+import NewsPage from './pages/NewsPage/NewsPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
