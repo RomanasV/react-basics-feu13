@@ -1,6 +1,6 @@
-const SectionTitle = () => {
+const SectionTitle = (props) => {
   return (
-    <h2 className="section-title">Vaizdo įrašai</h2>
+    <h2 className="section-title">{props.title}</h2>
   )
 }
 

@@ -11,6 +11,10 @@ img, iframe {
   width: 100%;
 }
 
+iframe {
+  border: 0;
+}
+
 .container {
   max-width: 1230px;
   margin-left: auto;

@@ -1,6 +1,6 @@
-const LargeLink = () => {
+function LargeLink(props) {
   return (
-    <a href="#" className="large-button">Visos naujienos</a>
+    <a href={props.url} className="large-button">{props.text}</a>
   )
 }
 

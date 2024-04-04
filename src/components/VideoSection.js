@@ -5,7 +5,7 @@ import VideoWrapper from "./VideoWrapper"
 const VideoSection = () => {
   return (
     <div className="video-section">
-      <SectionTitle />
+      <SectionTitle title="Vaizdo įrašai" />
 
       <div className="primary-video-wrapper">
         <VideoWrapper />
@@ -27,8 +27,7 @@ const VideoSection = () => {
         </div> */}
       </div>
 
-      <LargeLink />
-      {/* <a href="#" className="large-button">Visi vaizdo įrašai</a> */}
+      <LargeLink text="Visi vaizdo įrašai" url="#" />
     </div>
   )
 }

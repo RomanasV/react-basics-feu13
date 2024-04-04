@@ -10,9 +10,17 @@ const NewsSection = () => {
       <PrimaryNewsList />
       <SecondaryNewsList />
 
-      <LargeLink />
+      <LargeLink text="Visos naujienos" url="#" />
     </div>
   )
 }
 
 export default NewsSection
+
+
+function helloWithName(name) {
+
+}
+
+helloWithName('John')
+helloWithName('Steve')
