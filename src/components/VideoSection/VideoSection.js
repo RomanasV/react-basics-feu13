@@ -1,6 +1,8 @@
-import LargeLink from "./LargeLink"
-import SectionTitle from "./SectionTitle"
-import VideoWrapper from "./VideoWrapper"
+import LargeLink from "../LargeLink/LargeLink"
+import SectionTitle from "../SectionTitle/SectionTitle"
+import VideoWrapper from "../VideoWrapper/VideoWrapper"
+
+import './VideoSection.css'
 
 const VideoSection = () => {
   return (

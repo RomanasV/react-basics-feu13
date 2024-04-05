@@ -1,3 +1,5 @@
+import './PodcastItem.css'
+
 const PodcastItem = (props) => {
   const { imageSrc, imageAlt, length, title, date } = props.data
 

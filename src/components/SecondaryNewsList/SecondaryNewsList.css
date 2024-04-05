@@ -1,0 +1,22 @@
+.secondary-news-list {
+  display: grid;
+  gap: 30px;
+}
+
+@media screen and (min-width: 700px) {
+  .secondary-news-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .secondary-news-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .secondary-news-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,37 @@
+.primary-news-list .news-item {
+  background-color: white;
+}
+
+.news-item a {
+  color: black;
+  text-decoration: none;
+}
+
+.secondary-news-list .news-item a {
+  display: flex;
+}
+
+.secondary-news-list .news-image {
+  width: 120px;
+  height: 80px;
+}
+
+.primary-news-list .news-content-wrapper {
+  padding: 38px;
+}
+
+.secondary-news-list .news-content-wrapper {
+  padding-left: 20px;
+}
+
+.news-category {
+  text-transform: uppercase;
+  color: #1200ff;
+  letter-spacing: 1.2px;
+}
+
+.secondary-news-list .news-title {
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}

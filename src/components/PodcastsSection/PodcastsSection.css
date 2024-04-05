@@ -1,0 +1,9 @@
+.podcasts-section {
+  display: grid;
+  row-gap: 30px;
+}
+
+.podcasts-list {
+  display: grid;
+  row-gap: 30px;
+}

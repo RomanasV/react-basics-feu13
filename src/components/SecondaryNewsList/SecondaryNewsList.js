@@ -1,4 +1,5 @@
-import NewsItem from "./NewsItem"
+import NewsItem from "../NewsItem/NewsItem"
+import './SecondaryNewsList.css'
 
 const SecondaryNewsList = () => {
   return (

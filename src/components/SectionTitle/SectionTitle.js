@@ -1,3 +1,5 @@
+import './SectionTitle.css'
+
 const SectionTitle = (props) => {
   if (!props.title) {
     return ''

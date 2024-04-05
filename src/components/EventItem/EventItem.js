@@ -1,3 +1,5 @@
+import './EventItem.css'
+
 const EventItem = (props) => {
   return (
     <div className="event-item">

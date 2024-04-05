@@ -1,5 +1,7 @@
-import PodcastItem from "./PodcastItem"
-import SectionTitle from "./SectionTitle"
+import PodcastItem from "../PodcastItem/PodcastItem"
+import SectionTitle from "../SectionTitle/SectionTitle"
+
+import './PodcastsSection.css'
 
 const PodcastsSection = (props) => {
   const { title, list } = props.data

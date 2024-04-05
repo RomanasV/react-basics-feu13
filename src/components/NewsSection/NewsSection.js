@@ -1,6 +1,8 @@
-import LargeLink from "./LargeLink"
-import PrimaryNewsList from "./PrimaryNewsList"
-import SecondaryNewsList from "./SecondaryNewsList"
+import LargeLink from "../LargeLink/LargeLink"
+import PrimaryNewsList from "../PrimaryNewsList/PrimaryNewsList"
+import SecondaryNewsList from "../SecondaryNewsList/SecondaryNewsList"
+
+import './NewsSection.css'
 
 const NewsSection = () => {
   return (
@@ -16,11 +18,3 @@ const NewsSection = () => {
 }
 
 export default NewsSection
-
-
-function helloWithName(name) {
-
-}
-
-helloWithName('John')
-helloWithName('Steve')

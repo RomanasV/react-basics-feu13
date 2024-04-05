@@ -1,0 +1,27 @@
+.video-section {
+  display: grid;
+  row-gap: 30px;
+}
+
+.secondary-video-wrapper {
+  display: grid;
+  gap: 30px;
+}
+
+@media screen and (min-width: 700px) {
+  .secondary-video-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .secondary-video-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .secondary-video-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,7 +1,7 @@
-import EventsSection from "../../components/EventsSection"
-import NewsSection from "../../components/NewsSection"
-import PodcastsSection from "../../components/PodcastsSection"
-import VideoSection from "../../components/VideoSection"
+import EventsSection from "../../components/EventsSection/EventsSection"
+import NewsSection from "../../components/NewsSection/NewsSection"
+import PodcastsSection from "../../components/PodcastsSection/PodcastsSection"
+import VideoSection from "../../components/VideoSection/VideoSection"
 
 import './NewsPage.css'
 

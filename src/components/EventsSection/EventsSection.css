@@ -1,0 +1,9 @@
+.events-section {
+  display: grid;
+  row-gap: 30px;
+}
+
+.events-list {
+  display: grid;
+  row-gap: 70px;
+}

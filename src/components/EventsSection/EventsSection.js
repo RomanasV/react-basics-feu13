@@ -1,6 +1,8 @@
-import EventItem from "./EventItem"
-import LargeLink from "./LargeLink"
-import SectionTitle from "./SectionTitle"
+import EventItem from "../EventItem/EventItem"
+import LargeLink from "../LargeLink/LargeLink"
+import SectionTitle from "../SectionTitle/SectionTitle"
+
+import './EventsSection.css'
 
 const EventsSection = () => {
   const events = [
