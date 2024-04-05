@@ -3,6 +3,32 @@ import LargeLink from "./LargeLink"
 import SectionTitle from "./SectionTitle"
 
 const EventsSection = () => {
+  const events = [
+    {
+      imageSrc: "https://codeacademy.lt/wp-content/uploads/2024/02/CCBaltics-vizualas-1024x592-1.png" ,
+      imageAlt: "" ,
+      title: "COMIC CON BALTICS 2024" ,
+      location: "Lietuvos parodų ir kongresų centras LITEXPO" ,
+      day: "24" ,
+      month: "geg" ,
+      url: "./"  ,
+    },
+    {
+      title: "COMIC CON BALTICS 2024" ,
+      location: "Lietuvos parodų ir kongresų centras LITEXPO" ,
+      day: "24" ,
+      month: "geg" ,
+      url: "./"  ,
+    },
+    {
+      title: "COMIC CON BALTICS 2024" ,
+      location: "Lietuvos parodų ir kongresų centras LITEXPO" ,
+      day: "24" ,
+      month: "geg" ,
+      url: "./"  ,
+    },
+  ]
+
   return (
     <div className="events-section">
       <SectionTitle title="Renginiai" />

@@ -1,22 +1,25 @@
-// const PodcastItem = (props) => {
-const PodcastItem = ({ imageSrc, imageAlt, length, title, date }) => {
-  // const imageSrc = props.imageSrc
-  // const imageAlt = props.imageAlt
-  // const length = props.length
-  // const title = props.title
-  // const date = props.date
+const PodcastItem = (props) => {
+  const { imageSrc, imageAlt, length, title, date } = props.data
 
-  // const { imageSrc, imageAlt, length, title, date } = props
+  if (!title) {
+    return ''
+  }
+
+  const image = imageSrc && <img src={imageSrc} alt={imageAlt} className="podcast-image" />
+
+  const lengthElement = length && <span className="podcast-length">Trukmė: {length}</span>
+
+  const dateElement = date && <span className="podcast-date">{date}</span>
 
   return (
     <div className="podcast-item">
-      <img src={imageSrc} alt={imageAlt} className="podcast-image" />
-      <span className="podcast-length">Trukmė: {length}</span>
+      {image}
+      {lengthElement}
       <button className="podcast-play">Play</button>
 
       <div className="podcast-content">
         <h3 className="podcast-title">{title}</h3>
-        <span className="podcast-date">{date}</span>
+        {dateElement}
       </div>
     </div>
   )
