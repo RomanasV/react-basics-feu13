@@ -4,6 +4,7 @@ import './index.css';
 // import App from './App';
 // import Testimonials from './pages/Testimonials';
 import NewsPage from './pages/NewsPage/NewsPage';
+import HuddlePage from './pages/HuddlePage/HuddlePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,8 @@ root.render(
     {/* <Testimonials></Testimonials> */}
     {/* <Testimonials /> */}
 
-    <NewsPage />
+    {/* <NewsPage /> */}
+
+    <HuddlePage />
   </React.StrictMode>
 );

@@ -1,0 +1,22 @@
+.button {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 14px 45px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.secondary-button {
+  background-color: white;
+  color: black;
+}
+
+.primary-button {
+  background-color: hsl(322, 100%, 66%);
+  color: white;
+}
