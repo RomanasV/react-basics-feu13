@@ -1,8 +1,8 @@
-import jonathanImage from './images/image-jonathan.jpg'
-import danielImage from './images/image-daniel.jpg'
-import jeanetteImage from './images/image-jeanette.jpg'
-import kiraImage from './images/image-kira.jpg'
-import patrickImage from './images/image-patrick.jpg'
+import jonathanImage from '../../images/image-jonathan.jpg'
+import danielImage from '../../images/image-daniel.jpg'
+import jeanetteImage from '../../images/image-jeanette.jpg'
+import kiraImage from '../../images/image-kira.jpg'
+import patrickImage from '../../images/image-patrick.jpg'
 import './Testimonials.css'
 
 export default function Testimonials() {

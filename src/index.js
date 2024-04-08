@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
-// import Testimonials from './pages/Testimonials';
-import NewsPage from './pages/NewsPage/NewsPage';
-import HuddlePage from './pages/HuddlePage/HuddlePage';
+// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
 
-    {/* <Testimonials></Testimonials> */}
-    {/* <Testimonials /> */}
+    {/* <BrowserRouter>
+      <App />
+    </BrowserRouter> */}
 
-    {/* <NewsPage /> */}
+    <Router>
+      <App />
+    </Router>
 
-    <HuddlePage />
   </React.StrictMode>
 );
