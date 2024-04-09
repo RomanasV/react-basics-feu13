@@ -3,26 +3,14 @@ import { useState } from "react"
 const CounterPage = () => {
   const [num, setNum] = useState(5)
 
-  // const buttonElement = document.querySelector('button')
-  // buttonElement.addEventListener('click', buttonClickHandler)
+  const plus1Handler = () => setNum(num + 1)
+  const minus1Handler = () => setNum(num - 1)
 
-  // function buttonClickHandler() {
-  //   console.log('Button was clicked')
-  // }
-
-  // let num = 5
-
-  const plus1Handler = () => {
-    setNum(num + 1)
-  }
-
-  function minus1Handler() {
-    setNum(num - 1)
-  }
+  const displayColor = num >= 5 ? 'green' : 'red'
 
   return (
     <div>
-      <h3>{num}</h3>
+      <h3 style={{color: displayColor}}>{num}</h3>
       <button onClick={plus1Handler} disabled={num > 9}>+1</button>
       <button onClick={minus1Handler} disabled={num <= 1}>-1</button>
     </div>
