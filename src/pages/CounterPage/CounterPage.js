@@ -38,6 +38,10 @@ const CounterPage = () => {
   //   }
   // }
 
+  const deleteGradeHandler = (index) => {
+    console.log(index, grades)
+  }
+
   const getColor = grade => grade >= 5 ? 'green' : 'red'
 
   return (
@@ -61,7 +65,15 @@ const CounterPage = () => {
 
         {grades.length > 0 && (
           <ul>
-            {grades.map((grade, index) => <li style={{color: getColor(grade)}} key={index}>{grade}</li>)}
+            {grades.map((grade, index) => (
+              
+              <li style={{color: getColor(grade)}} key={index}>
+                {grade}
+
+                <button onClick={() => deleteGradeHandler(index)}>X</button>
+              </li>
+            
+            ))}
           </ul>
         )}
       </div>
