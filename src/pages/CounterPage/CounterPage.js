@@ -5,6 +5,30 @@ const CounterPage = () => {
 
   const [num, setNum] = useState(INITIAL_NUM)
 
+  const checkButtonDisable = (count) => {
+    if (count > 0 && num > 10 - count) {
+      return true
+    }
+
+    if (count < 0 && num <= Math.abs(count)) {
+      return true
+    }
+
+    return false
+  }
+
+  const buttonNums = [5, 2, 1, -1, -2, -5]
+
+  const buttonsList = buttonNums.map((buttonNum, index) => (
+    <button 
+      key={index} 
+      onClick={() => numHandler(buttonNum)} 
+      disabled={checkButtonDisable(buttonNum)}
+    >
+      {buttonNum}
+    </button>
+  ))
+
   const numHandler = count => {
     // setNum(num + count)
 
@@ -23,12 +47,9 @@ const CounterPage = () => {
     <div>
       <input type="number" min="1" max="10" value={num} onChange={inputNumHandler} />
       <h3 style={{color: displayColor}}>{num}</h3>
-      <button onClick={() => numHandler(5)} disabled={num > 5}>+5</button>
-      <button onClick={() => numHandler(2)} disabled={num > 8}>+2</button>
-      <button onClick={() => numHandler(1)} disabled={num > 9}>+1</button>
-      <button onClick={() => numHandler(-1)} disabled={num <= 1}>-1</button>
-      <button onClick={() => numHandler(-2)} disabled={num <= 2}>-2</button>
-      <button onClick={() => numHandler(-5)} disabled={num <= 5}>-5</button>
+
+      {buttonsList}
+      
       <button onClick={() => setNum(INITIAL_NUM)}>Reset</button>
     </div>
   )
