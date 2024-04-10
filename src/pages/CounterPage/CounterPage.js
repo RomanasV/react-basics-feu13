@@ -4,7 +4,7 @@ const CounterPage = () => {
   const INITIAL_NUM = 5
 
   const [num, setNum] = useState(INITIAL_NUM)
-  const [grades, setGrades] = useState([])
+  const [grades, setGrades] = useState([5, 1, 10, 7, 9, 3])
 
   const numHandler = count => {
     // setNum(num + count)
@@ -39,8 +39,14 @@ const CounterPage = () => {
   // }
 
   const deleteGradeHandler = (index) => {
-    console.log(index, grades)
+    setGrades(prevState => {
+      const newState = [...prevState]
+      newState.splice(index, 1)
+      return newState
+    })
   }
+
+  const removeAllGradesHandler = () => setGrades([])
 
   const getColor = grade => grade >= 5 ? 'green' : 'red'
 
@@ -59,6 +65,8 @@ const CounterPage = () => {
       <button onClick={() => setNum(INITIAL_NUM)}>Reset</button>
 
       <button onClick={addGradeHandler}>Add Grade</button>
+      
+      {grades.length > 0 && <button onClick={removeAllGradesHandler}>Remove All Grades</button>}
 
       <div>
         <h4>{grades.length > 0 ? 'Grades:' : 'No grades yet... Please add a grade.'}</h4>
