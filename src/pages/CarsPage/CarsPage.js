@@ -94,7 +94,7 @@ const CarsPage = () => {
         image: 'https://i.gaw.to/content/photos/55/01/550195-nissan-altima-2022.jpeg',
         discount: 0,
     }
-];
+  ];
 
   const [cars, setCars] = useState(INITIAL_CARS)
 
@@ -126,15 +126,24 @@ const CarsPage = () => {
       basePrice,
       mileage,
       color,
-      image
+      image,
+      discount
     }
 
     setCars(prevState => [newCar, ...prevState])
+
+    setBrand('')
+    setModel('')
+    setEngine('petrol')
+    setBasePrice(0)
+    setMileage(0)
+    setColor('black')
+    setImage('')
+    setDiscount(0)
   }
 
   return (
     <div>
-
       <form onSubmit={newCarHandler}>
         <div className="form-control">
           <label htmlFor="brand">Brand:</label>
