@@ -1,0 +1,21 @@
+TODO UŽDUOTIS:
+1. Sukurti 4 komponentus:
+1.1. TodoPage (pradinis komponentas)
+1.2. TodoForm (forma)
+1.3. TodoList (visų todo užduočių sąrašas)
+1.4. TodoItem (vienos todo užduoties komponentas)
+
+          TodoPage
+
+    TodoForm    TodoList
+                   TodoItem
+
+2. Kiekviena sukurta užduotis turi turėti:
+2.1. Pavadinimą
+2.2. Aprašymą
+
+2.3. Data iki kada užduotį reikia atlikti
+
+2.4. Sukūrimo datą (prisideda automatiškai)
+2.5. Unikalų id (prisideda automatiškai)
+2.6. Done (prisideda automatiškai false reikšmė)

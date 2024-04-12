@@ -30,7 +30,7 @@ const CarForm = ({ onNewCar }) => {
       mileage,
       color,
       image,
-      discount
+      discount,
     }
 
     onNewCar(newCar)
