@@ -5,6 +5,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import PageHeader from './components/PageHeader/PageHeader'
 import CounterPage from './pages/CounterPage/CounterPage'
 import CitiesPage from './pages/CitiesPage/CitiesPage'
+import CarsPage from './pages/CarsPage/CarsPage'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/codeacademy/news' element={<NewsPage />} />
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/cities' element={<CitiesPage />} />
+        <Route path='/cars' element={<CarsPage />} />
 
         <Route path='*' element={
           <div>
