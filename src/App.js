@@ -6,6 +6,7 @@ import PageHeader from './components/PageHeader/PageHeader'
 import CounterPage from './pages/CounterPage/CounterPage'
 import CitiesPage from './pages/CitiesPage/CitiesPage'
 import CarsPage from './pages/CarsPage/CarsPage'
+import TodoPage from './pages/TodoPage/TodoPage'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/counter' element={<CounterPage />} />
         <Route path='/cities' element={<CitiesPage />} />
         <Route path='/cars' element={<CarsPage />} />
+        <Route path='/todo' element={<TodoPage />} />
 
         <Route path='*' element={
           <div>

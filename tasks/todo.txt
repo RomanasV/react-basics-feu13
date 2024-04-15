@@ -19,3 +19,6 @@ TODO UŽDUOTIS:
 2.4. Sukūrimo datą (prisideda automatiškai)
 2.5. Unikalų id (prisideda automatiškai)
 2.6. Done (prisideda automatiškai false reikšmė)
+
+3. Atvaizduoti kiek liko laiko iki užduoties deadline.
+4. Pridėti galimybę pažymėti užduotį kaip atliktą.
