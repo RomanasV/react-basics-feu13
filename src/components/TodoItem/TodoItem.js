@@ -1,8 +1,9 @@
-const TodoItem = ({ data, onDoneTask, onRemoveTask }) => {
+const TodoItem = ({ data, onDoneTask, onRemoveTask, onEditTask }) => {
   const { title, description, done, dueDate, id } = data
 
   const doneHandler = () => onDoneTask(id)
   const removeHandler = () => onRemoveTask(id)
+  const editHandler = () => onEditTask(id)
 
   return (
     <div className="todo-item">
@@ -16,6 +17,7 @@ const TodoItem = ({ data, onDoneTask, onRemoveTask }) => {
       </div>
 
       <button onClick={removeHandler}>Remove Task</button>
+      <button onClick={editHandler}>Edit Task</button>
     </div>
   )
 }
