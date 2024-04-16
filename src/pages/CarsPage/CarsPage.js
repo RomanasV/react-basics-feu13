@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { v4 as uuid } from 'uuid';
 import CarsList from "../../components/CarsList/CarsList";
 import CarForm from "../../components/CarForm/CarForm";
 
 const CarsPage = () => {
   const INITIAL_CARS = [
     {
+        id: uuid(),
         brand: 'Volvo',
         model: 'xc 70',
         engine: 'diesel',
@@ -15,6 +17,7 @@ const CarsPage = () => {
         discount: 15,
     },
     {
+        id: uuid(),
         brand: 'Toyota',
         model: 'Camry',
         engine: 'petrol',
@@ -25,6 +28,7 @@ const CarsPage = () => {
         discount: 50,
     },
     {
+        id: uuid(),
         brand: 'Honda',
         model: 'Civic',
         engine: 'electric',
@@ -35,6 +39,7 @@ const CarsPage = () => {
         discount: 7,
     },
     {
+        id: uuid(),
         brand: 'Ford',
         model: 'Fiesta',
         engine: 'petrol',
@@ -45,6 +50,7 @@ const CarsPage = () => {
         discount: 23,
     },
     {
+        id: uuid(),
         brand: 'BMW',
         model: 'X3',
         engine: 'diesel',
@@ -55,6 +61,7 @@ const CarsPage = () => {
         discount: 0,
     },
     {
+        id: uuid(),
         brand: 'Mercedes-Benz',
         model: 'C-Class',
         engine: 'electric',
@@ -65,6 +72,7 @@ const CarsPage = () => {
         discount: 0,
     },
     {
+        id: uuid(),
         brand: 'Audi',
         model: 'A4',
         engine: 'petrol',
@@ -75,6 +83,7 @@ const CarsPage = () => {
         discount: 0,
     },
     {
+        id: uuid(),
         brand: 'Chevrolet',
         model: 'Malibu',
         engine: 'diesel',
@@ -85,6 +94,7 @@ const CarsPage = () => {
         discount: 0,
     },
     {
+        id: uuid(),
         brand: 'Nissan',
         model: 'Altima',
         engine: 'petrol',
@@ -97,14 +107,32 @@ const CarsPage = () => {
   ];
 
   const [cars, setCars] = useState(INITIAL_CARS)
+  const [editCar, setEditCar] = useState(null)
 
   const newCarHandler = (newCar) => setCars(prevState => [newCar, ...prevState])
 
+  const deleteCarHandler = id => setCars(prevState => prevState.filter(car => car.id !== id))
+
+  const editCarHandler = id => {
+    const clickedCar = cars.find(car => car.id === id)
+    setEditCar(clickedCar)
+  }
+
+  const updateCarHandler = carData => {
+    setCars(prevState => {
+        const newState = prevState.map(car => car.id === carData.id ? carData : car)
+
+        return newState
+    })
+
+    setEditCar(null)
+  }
+
   return (
     <div>
-      <CarForm onNewCar={newCarHandler} />
+      <CarForm onUpdateCar={updateCarHandler} editCar={editCar} onNewCar={newCarHandler} />
 
-      <CarsList data={cars} />
+      <CarsList onEditCar={editCarHandler} onDeleteCar={deleteCarHandler} data={cars} />
     </div>
   )
 }

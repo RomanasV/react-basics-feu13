@@ -1,5 +1,5 @@
-const CarItem = (props) => {
-  const { brand, model, color, basePrice, discount, engine, image, mileage } = props.data
+const CarItem = ({ onDeleteCar, data, onEditCar }) => {
+  const { brand, model, color, basePrice, discount, engine, image, mileage, id } = data
 
   if (!brand || !model || !basePrice) {
     return ''
@@ -70,6 +70,9 @@ const CarItem = (props) => {
   const VAT = Math.round(totalPriceBeforeVAT * 0.21)
   const totalPriceAfterVAT = totalPriceBeforeVAT + VAT
 
+  const editHandler = () => onEditCar(id)
+  const deleteHandler = () => onDeleteCar(id)
+
   return (
     <div className="car-item">
       {imageElement}
@@ -108,6 +111,9 @@ const CarItem = (props) => {
           </ul>
         </div>
       </div>
+
+      <button onClick={editHandler}>Edit Car</button>
+      <button onClick={deleteHandler}>Delete Car</button>
     </div>
   )
 }

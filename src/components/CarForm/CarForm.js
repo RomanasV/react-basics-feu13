@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { v4 as uuid } from 'uuid';
 
-const CarForm = ({ onNewCar }) => {
+const CarForm = ({ onNewCar, editCar, onUpdateCar }) => {
   const [brand, setBrand] = useState('')
   const [model, setModel] = useState('')
   const [engine, setEngine] = useState('petrol')
@@ -9,6 +10,21 @@ const CarForm = ({ onNewCar }) => {
   const [color, setColor] = useState('black')
   const [image, setImage] = useState('')
   const [discount, setDiscount] = useState(0)
+
+  useEffect(() => {
+    if (editCar) {
+      const { brand, model, engine, basePrice, mileage, color, image, discount } = editCar
+  
+      setBrand(brand)
+      setModel(model)
+      setEngine(engine)
+      setBasePrice(basePrice)
+      setMileage(mileage)
+      setColor(color)
+      setImage(image)
+      setDiscount(discount)
+    }
+  }, [editCar])
 
   const brandHandler = event => setBrand(event.target.value)
   const modelHandler = event => setModel(event.target.value)
@@ -22,7 +38,7 @@ const CarForm = ({ onNewCar }) => {
   const formSubmitHandler = event => {
     event.preventDefault()
     
-    const newCar = {
+    const carData = {
       brand,
       model,
       engine,
@@ -33,7 +49,13 @@ const CarForm = ({ onNewCar }) => {
       discount,
     }
 
-    onNewCar(newCar)
+    if (editCar) {
+      carData.id = editCar.id
+      onUpdateCar(carData)
+    } else {
+      carData.id = uuid()
+      onNewCar(carData)
+    }
 
     setBrand('')
     setModel('')
@@ -99,7 +121,7 @@ const CarForm = ({ onNewCar }) => {
         <input type="number" name="discount" id="discount" min="0" max="100" value={discount} onChange={discountHandler} />
       </div>
 
-      <button type="submit">Create New Car</button>
+      <button type="submit">{editCar ? 'Edit Car' : 'Create New Car'}</button>
     </form>
   )
 }
