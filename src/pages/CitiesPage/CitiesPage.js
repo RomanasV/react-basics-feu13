@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { v4 as uuid } from 'uuid';
 import CityItem from "../../components/CityItem/CityItem"
 
 const CitiesPage = () => {
   const INITIAL_CITIES = [
     {
+      id: uuid(),
       name: 'Vilnius',
       population: 500000,
       location: {
@@ -14,6 +16,7 @@ const CitiesPage = () => {
       isCapital: true,
     },
     {
+      id: uuid(),
       name: 'Kaunas',
       population: 500000,
       location: {
@@ -24,6 +27,7 @@ const CitiesPage = () => {
       isCapital: false,
     },
     {
+      id: uuid(),
       name: 'Klaipėda',
       population: 500000,
       location: {
@@ -36,6 +40,7 @@ const CitiesPage = () => {
   ]
 
   const [cities, setCities] = useState(INITIAL_CITIES)
+  const [editCity, setEditCity] = useState(null)
 
   const [name, setName] = useState('')
   const [population, setPopulation] = useState(0)
@@ -53,10 +58,10 @@ const CitiesPage = () => {
 
   const newCityHandler = event => {
     event.preventDefault()
-    
+
     const touristAttractionsArr = touristAttractions.trim().length > 0 ? touristAttractions.split(',').map(attraction => attraction.trim()) : []
 
-    const newCity = {
+    const city = {
       name,
       population,
       location: {
@@ -67,7 +72,20 @@ const CitiesPage = () => {
       isCapital,
     }
 
-    setCities(prevState => [newCity, ...prevState])
+    if (editCity) {
+      city.id = editCity.id
+
+      setCities(prevState => {
+        const updatedState = prevState.map(cityItem => cityItem.id === editCity.id ? city : cityItem)
+        return updatedState
+      })
+
+      setEditCity(null)
+    } else {
+      city.id = uuid()
+
+      setCities(prevState => [city, ...prevState])
+    }
 
     setName('')
     setPopulation(0)
@@ -77,6 +95,21 @@ const CitiesPage = () => {
     setIsCapital(false)
   }
 
+  const removeCityHandler = id => setCities(prevState => prevState.filter(city => city.id !== id))
+
+  const editCityHandler = id => {
+    const clickedCity = cities.find(city => city.id === id)
+    setEditCity(clickedCity)
+
+    setName(clickedCity.name)
+    setPopulation(clickedCity.population)
+    setCountry(clickedCity.location.country)
+    setContinent(clickedCity.location.continent)
+
+    const touristAttractionsString = clickedCity.touristAttractions.join(', ')
+    setTouristAttractions(touristAttractionsString)
+    setIsCapital(clickedCity.isCapital)
+  }
 
   return (
     <div>
@@ -111,7 +144,7 @@ const CitiesPage = () => {
           <label htmlFor="is-capital">Is capital</label>
         </div>
 
-        <button type="submit">Add New City</button>
+        <button type="submit">{editCity ? 'Edit City' : 'Add New City'}</button>
       </form>
 
       <div className="cities-list" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
@@ -120,7 +153,9 @@ const CitiesPage = () => {
             key={index} 
             data={city} 
             index={index} 
-            listLength={cities.length} 
+            listLength={cities.length}
+            onDeleteCity={removeCityHandler}
+            onEditCity={editCityHandler}
           />
         ))}
       </div>

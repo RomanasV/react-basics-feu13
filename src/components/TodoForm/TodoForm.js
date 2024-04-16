@@ -57,8 +57,6 @@ const TodoForm = ({ onNewTodo, editTodo, onTodoUpdate }) => {
       onNewTodo(newTodo)
     }
 
-    
-
     setTitle('')
     setDescription('')
     setDueDate('')
