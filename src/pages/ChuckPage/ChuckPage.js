@@ -3,6 +3,7 @@ import { useState } from "react"
 
 const ChuckPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
+  const [searchPhrase, setSearchPhrase] = useState('')
   const [categories, setCategories] = useState([])
   const [joke, setJoke] = useState('')
 
@@ -51,6 +52,7 @@ const ChuckPage = () => {
   }
 
   const categorySelectHandler = event => setSelectedCategory(event.target.value)
+  const searchPhraseHandler = event => setSearchPhrase(event.target.value)
 
   const categoryJokeHandler = async event => {
     event.preventDefault()
@@ -59,6 +61,18 @@ const ChuckPage = () => {
     const joke = await res.json()
 
     setJoke(joke.value)
+  }
+
+  const searchJokeHandler = async event => {
+    event.preventDefault()
+    
+    const res = await fetch('https://api.chucknorris.io/jokes/search?query=' + searchPhrase)
+    const data = await res.json()
+
+    const jokesLength = data.total
+    const randomIndex = Math.floor(Math.random() * jokesLength)
+    const randomJoke = data.result[randomIndex]
+    setJoke(randomJoke.value)
   }
 
   return (
@@ -74,6 +88,15 @@ const ChuckPage = () => {
         </select>
 
         <button type="submit">Joke by category</button>
+      </form>
+
+      <form onSubmit={searchJokeHandler}>
+        <div className="form-control">
+          <label htmlFor="search">Search phrase:</label>
+          <input type="text" name="search" id="search" value={searchPhrase} onChange={searchPhraseHandler} />
+        </div>
+
+        <button type="submit">Search Joke</button>
       </form>
     </div>
   )
