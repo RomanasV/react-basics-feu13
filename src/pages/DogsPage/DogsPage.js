@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { v4 as uuid } from "uuid"
 
 const DogsPage = () => {
   const [breeds, setBreeds] = useState()
@@ -18,25 +19,32 @@ const DogsPage = () => {
   }, [])
 
   const getOptionElements = () => {
+    if (!breeds) {
+      return
+    }
+    
     const options = []
     
-    let index = 0
+    const breedsData = Object.entries(breeds)
 
-    for (const mainBreed in breeds) {
-      const subBreeds = breeds[mainBreed]
+    breedsData.forEach(breed => {
+      const mainBreed = breed[0]
+      const subBreeds = breed[1]
 
       if (subBreeds.length === 0) {
-        options.push(<option key={index} value={mainBreed}>{mainBreed}</option>)
-        index++
-      } else {
-        subBreeds.forEach(subBreed => {
-          options.push(<option key={index} value={`${mainBreed}/${subBreed}`}>{`${mainBreed} (${subBreed})`}</option>)
-          index++
-        })
+        const mainBreedOption = <option key={uuid()} value={mainBreed}>{mainBreed}</option>
+        options.push(mainBreedOption)
+
+        return
       }
 
-    }
+      subBreeds.forEach(subBreed => {
+        const subBreedOption = <option key={uuid()} value={`${mainBreed}/${subBreed}`}>{`${mainBreed} (${subBreed})`}</option>
+        options.push(subBreedOption)
+      })
 
+    })
+      
     return options
   }
 
