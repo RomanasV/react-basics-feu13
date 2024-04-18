@@ -9,6 +9,7 @@ import CarsPage from './pages/CarsPage/CarsPage'
 import TodoPage from './pages/TodoPage/TodoPage'
 import ChuckPage from './pages/ChuckPage/ChuckPage'
 import DogsPage from './pages/DogsPage/DogsPage'
+import AIPage from './pages/AIPage/AIPage'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/todo' element={<TodoPage />} />
         <Route path='/api/chuck' element={<ChuckPage />} />
         <Route path='/api/dogs' element={<DogsPage />} />
+        <Route path='/api/ai' element={<AIPage />} />
 
         <Route path='*' element={
           <div>

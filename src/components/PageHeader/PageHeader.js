@@ -37,6 +37,9 @@ const PageHeader = () => {
               <li>
                 <NavLink to="/api/dogs">Dogs</NavLink>
               </li>
+              <li>
+                <NavLink to="/api/ai">AI</NavLink>
+              </li>
             </ul>
           </li>
           <li>
