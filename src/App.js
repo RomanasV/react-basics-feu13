@@ -10,6 +10,13 @@ import TodoPage from './pages/TodoPage/TodoPage'
 import ChuckPage from './pages/ChuckPage/ChuckPage'
 import DogsPage from './pages/DogsPage/DogsPage'
 import AIPage from './pages/AIPage/AIPage'
+import HomePage from './pages/apiProject/HomePage/HomePage'
+import PostsPage from './pages/apiProject/PostsPage/PostsPage'
+import UsersPage from './pages/apiProject/UsersPage/UsersPage'
+import AlbumsPage from './pages/apiProject/AlbumsPage/AlbumsPage'
+import PostPage from './pages/apiProject/PostPage/PostPage'
+import UserPage from './pages/apiProject/UserPage/UserPage'
+import AlbumPage from './pages/apiProject/AlbumPage/AlbumPage'
 
 const App = () => {
   return (
@@ -29,6 +36,15 @@ const App = () => {
         <Route path='/api/chuck' element={<ChuckPage />} />
         <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='/api/ai' element={<AIPage />} />
+        <Route path='/api-project/' element={<HomePage />} />
+        <Route path='/api-project/posts' element={<PostsPage />} />
+        <Route path='/api-project/users' element={<UsersPage />} />
+        <Route path='/api-project/albums' element={<AlbumsPage />} />
+
+
+        <Route path='/api-project/post' element={<PostPage />} />
+        <Route path='/api-project/user' element={<UserPage />} />
+        <Route path='/api-project/album' element={<AlbumPage />} />
 
         <Route path='*' element={
           <div>

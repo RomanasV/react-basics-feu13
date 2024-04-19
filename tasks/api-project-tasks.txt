@@ -16,3 +16,23 @@ API nuoroda: https://jsonplaceholder.typicode.com
   3.3. Albume esančių nuotraukų skaičius.
   3.4. Viena nuotrauka.
   3.5. Šis elementas turi būti nuoroda.
+
+4. Sukurti navigacijos elementą, kuris nukreips į puslapius:
+  4.1. Home / pagrindinis puslapis.
+  4.2. Users / vartotojų puslapis.
+  4.3. Albums / albumų puslapis.
+  4.4. Posts / pranešimų puslapis.
+  4.5. Pakeisti aktyvaus puslapio nuorodos stilių.
+
+5. Sukurti naują puslapį user, kuriame bus atvaizduojama vartotojo informacija:
+  5.1. Pilnas vardas.
+  5.2. Vartotojo vardas / nick'as.
+  5.3. El. paštas.
+  5.4. Adresas, kuris turės gatvę, namo numerį, miestą, pašto kodą. Paspaudus ant adreso, pagal koordinates, turėtų atidaryti šios vietos Google Maps.
+  5.5. Telefono numeris.
+  5.6. Internetinio puslapio adresas.
+  5.7. Įmonės, kurioje dirba, pavadinimas.
+
+6. Šiame puslapyje (user) turi būti atvaizduojama:
+  6.1. Visi vartotojo parašyti įrašai (posts). Kiekvienas post'as turi turėti nuorodą.
+  6.2. Visi vartotojo sukurti foto albumai. Kiekvienas albumas turės pavadinimą, kuris turi būti nuoroda.

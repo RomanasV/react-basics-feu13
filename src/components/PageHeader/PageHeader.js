@@ -9,6 +9,26 @@ const PageHeader = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+
+          <li>
+            <NavLink to="/api-project">API project</NavLink>
+
+            <ul>
+              <li>
+                <NavLink to="/api-project">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/api-project/posts">Posts</NavLink>
+              </li>
+              <li>
+                <NavLink to="/api-project/users">Users</NavLink>
+              </li>
+              <li>
+                <NavLink to="/api-project/albums">Albums</NavLink>
+              </li>
+            </ul>
+          </li>
+
           <li>
             <NavLink to="/counter">Counter</NavLink>
           </li>
