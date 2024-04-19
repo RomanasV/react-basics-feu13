@@ -42,9 +42,9 @@ const App = () => {
         <Route path='/api-project/albums' element={<AlbumsPage />} />
 
 
-        <Route path='/api-project/post' element={<PostPage />} />
-        <Route path='/api-project/user' element={<UserPage />} />
-        <Route path='/api-project/album' element={<AlbumPage />} />
+        <Route path='/api-project/posts/:id' element={<PostPage />} />
+        <Route path='/api-project/users/:id' element={<UserPage />} />
+        <Route path='/api-project/albums/:id' element={<AlbumPage />} />
 
         <Route path='*' element={
           <div>
