@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom"
+import PostItem from "../PostItem/PostItem"
 
-const PostsList = ({ data }) => {
-  const postElements = data.map(post => (
-    <li key={post.id}>
-      <Link to={`/api-project/posts/${post.id}`}>{post.title} ({post.comments.length})</Link> - <Link to={`/api-project/users/${post.user.id}`}>{post.user.name}</Link>
-    </li>
-  ))
+const PostsList = ({ data, title }) => {
+  const postElements = data.map(post => <PostItem key={post.id} data={post} />)
 
   return (
-    <div>
+    <div className="posts-wrapper">
+      {title && <h2>{title}</h2>}
+      
       {data.length > 0 ? (
         <ul>
           {postElements}

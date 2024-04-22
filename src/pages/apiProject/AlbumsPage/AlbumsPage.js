@@ -16,9 +16,7 @@ const AlbumsPage = () => {
   }, [])
   return (
     <div>
-      <h1>Albums List</h1>
-
-      <AlbumsList data={albums} />
+      <AlbumsList data={albums} title="Albums list:" />
     </div>
   )
 }

@@ -18,9 +18,7 @@ const PostsPage = () => {
 
   return (
     <div>
-      <h1>Posts List</h1>
-
-      <PostsList data={posts} />  
+      <PostsList data={posts} title='Posts List:' />  
     </div>
   )
 }
