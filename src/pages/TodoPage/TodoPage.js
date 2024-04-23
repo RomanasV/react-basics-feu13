@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TodoForm from "../../components/TodoForm/TodoForm"
 import TodoList from "../../components/TodoList/TodoList"
 
@@ -30,34 +30,75 @@ const TodoPage = () => {
     },
   ]
 
-  const [todos, setTodos] = useState(INITIAL_DATA)
+  const [todos, setTodos] = useState([])
   const [editTodo, setEditTodo] = useState(null)
 
-  const newTodoHandler = newTodo => setTodos(prevState => [newTodo, ...prevState])
+  useEffect(() => {
+    const getTodos = async () => {
+      const res = await fetch('http://localhost:3000/todos')
+      const data = await res.json()
 
-  const doneTodoHandler = id => {
-    setTodos(prevState => {
-      const newState = prevState.map(item => {
-        if (item.id === id) {
-          const newTodo = {...item, done: !item.done}
-          return newTodo
-        }
+      setTodos(data.reverse())
+    }
 
-        return item
-      })
+    getTodos()
+  }, [])
 
-      return newState
+  const newTodoHandler = async newTodo => {
+    const res = await fetch('http://localhost:3000/todos', {
+      method: 'POST',
+      body: JSON.stringify(newTodo),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
     })
+
+    const createdTodo = await res.json()
+
+    setTodos(prevState => [createdTodo, ...prevState])
   }
 
-  const removeTodoHandler = id => setTodos(prevState => prevState.filter(todo => todo.id !== id))
+  const doneTodoHandler = async todo => {
+    const res = await fetch(`http://localhost:3000/todos/${todo.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        done: !todo.done
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+
+    const updatedTask = await res.json()
+    console.log(updatedTask)
+
+    setTodos(prevState => prevState.map(item => item.id === updatedTask.id ? updatedTask : item))
+  }
+
+  const removeTodoHandler = id => {
+    fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'DELETE'
+    })
+
+    setTodos(prevState => prevState.filter(todo => todo.id !== id))
+  }
 
   const editTodoHandler = id => {
     const clickedTodo = todos.find(todo => todo.id === id)
     setEditTodo(clickedTodo)
   }
 
-  const updateTodoHandler = updatedTodo => {
+  const updateTodoHandler = async updatedTodo => {
+    const res = await fetch(`http://localhost:3000/todos/${updatedTodo.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(updatedTodo),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+
+    const editedTodo = await res.json()
+
     setTodos(prevState => {
       // const updateTodoIndex = prevState.findIndex(todo => todo.id === updatedTodo.id)
 
@@ -69,7 +110,7 @@ const TodoPage = () => {
       // updatedState.splice(updateTodoIndex, 1, updatedTodo)
 
 
-      const updatedState = prevState.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo)
+      const updatedState = prevState.map(todo => todo.id === editedTodo.id ? editedTodo : todo)
       return updatedState
     })
 

@@ -49,7 +49,6 @@ const TodoForm = ({ onNewTodo, editTodo, onTodoUpdate }) => {
         title,
         description,
         dueDate,
-        id: Math.random(),
         done: false,
         dateCreated
       }

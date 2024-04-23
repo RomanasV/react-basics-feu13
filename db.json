@@ -112,9 +112,26 @@
     }
   ],
   "todos": [
-
+    {
+      "id": "7da3",
+      "title": "dgfdfgdf",
+      "description": "ssddvxcv",
+      "dueDate": "",
+      "done": true,
+      "dateCreated": "2024-04-23"
+    }
   ],
   "cities": [
-    
+    {
+      "name": "qqqqqqqqq",
+      "population": 0,
+      "location": {
+        "continent": "",
+        "country": ""
+      },
+      "touristAttractions": [],
+      "isCapital": false,
+      "id": "50fc"
+    }
   ]
 }

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { v4 as uuid } from 'uuid';
 import CityItem from "../../components/CityItem/CityItem"
 
@@ -39,8 +39,19 @@ const CitiesPage = () => {
     },
   ]
 
-  const [cities, setCities] = useState(INITIAL_CITIES)
+  const [cities, setCities] = useState([])
   const [editCity, setEditCity] = useState(null)
+
+  useEffect(() => {
+    const getCities = async () => {
+      const res = await fetch('http://localhost:3000/cities')
+      const data = await res.json()
+
+      setCities(data.reverse())
+    }
+
+    getCities()
+  }, [])
 
   const [name, setName] = useState('')
   const [population, setPopulation] = useState(0)
@@ -56,7 +67,7 @@ const CitiesPage = () => {
   const touristAttractionsHandler = event => setTouristAttractions(event.target.value)
   const isCapitalHandler = event => setIsCapital(event.target.checked)
 
-  const newCityHandler = event => {
+  const newCityHandler = async event => {
     event.preventDefault()
 
     const touristAttractionsArr = touristAttractions.trim().length > 0 ? touristAttractions.split(',').map(attraction => attraction.trim()) : []
@@ -75,16 +86,34 @@ const CitiesPage = () => {
     if (editCity) {
       city.id = editCity.id
 
+      const res = await fetch(`http://localhost:3000/cities/${city.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(city),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+
+      const updatedCity = await res.json()
+
       setCities(prevState => {
-        const updatedState = prevState.map(cityItem => cityItem.id === editCity.id ? city : cityItem)
+        const updatedState = prevState.map(cityItem => cityItem.id === updatedCity.id ? updatedCity : cityItem)
         return updatedState
       })
 
       setEditCity(null)
     } else {
-      city.id = uuid()
+      const res = await fetch('http://localhost:3000/cities', {
+        method: 'POST',
+        body: JSON.stringify(city),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+      const createdCity = await res.json()
+      console.log(createdCity)
 
-      setCities(prevState => [city, ...prevState])
+      setCities(prevState => [createdCity, ...prevState])
     }
 
     setName('')
@@ -95,7 +124,13 @@ const CitiesPage = () => {
     setIsCapital(false)
   }
 
-  const removeCityHandler = id => setCities(prevState => prevState.filter(city => city.id !== id))
+  const removeCityHandler = id => {
+    fetch(`http://localhost:3000/cities/${id}`, {
+      method: 'DELETE'
+    })
+
+    setCities(prevState => prevState.filter(city => city.id !== id))
+  }
 
   const editCityHandler = id => {
     const clickedCity = cities.find(city => city.id === id)

@@ -1,7 +1,7 @@
 const TodoItem = ({ data, onDoneTask, onRemoveTask, onEditTask }) => {
   const { title, description, done, dueDate, id } = data
 
-  const doneHandler = () => onDoneTask(id)
+  const doneHandler = () => onDoneTask(data)
   const removeHandler = () => onRemoveTask(id)
   const editHandler = () => onEditTask(id)
 
