@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { v4 as uuid } from 'uuid';
 import CarsList from "../../components/CarsList/CarsList";
 import CarForm from "../../components/CarForm/CarForm";
@@ -106,21 +106,71 @@ const CarsPage = () => {
     }
   ];
 
-  const [cars, setCars] = useState(INITIAL_CARS)
+  const [cars, setCars] = useState([])
   const [editCar, setEditCar] = useState(null)
 
-  const newCarHandler = (newCar) => setCars(prevState => [newCar, ...prevState])
+  useEffect(() => {
+    const fetchCars = async () => {
+      const res = await fetch('http://localhost:3000/cars')
+      const data = await res.json()
 
-  const deleteCarHandler = id => setCars(prevState => prevState.filter(car => car.id !== id))
+      setCars(data.reverse())
+    }
+
+    fetchCars()
+  }, [])
+
+  const newCarHandler = async (newCar) => {
+    // fetch('http://localhost:3000/cars', {
+    //   method: 'POST',
+    //   body: JSON.stringify(newCar),
+    //   headers: {
+    //     'Content-type': 'application/json; charset=UTF-8',
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(createdCar => {
+    //     setCars(prevState => [createdCar, ...prevState])
+    //   })
+    
+    const res = await fetch('http://localhost:3000/cars', {
+      method: 'POST',
+      body: JSON.stringify(newCar),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+    const createdCar = await res.json()
+    setCars(prevState => [createdCar, ...prevState])
+    
+  }
+
+  const deleteCarHandler = id => {
+    fetch('http://localhost:3000/cars/' + id, {
+      method: 'DELETE',
+    })
+
+    setCars(prevState => prevState.filter(car => car.id !== id))
+  }
 
   const editCarHandler = id => {
     const clickedCar = cars.find(car => car.id === id)
     setEditCar(clickedCar)
   }
 
-  const updateCarHandler = carData => {
+  const updateCarHandler = async carData => {
+    const res = await fetch('http://localhost:3000/cars/' + carData.id, {
+      method: 'PUT',
+      body: JSON.stringify(carData),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+
+    const updatedCar = await res.json()
+
     setCars(prevState => {
-        const newState = prevState.map(car => car.id === carData.id ? carData : car)
+        const newState = prevState.map(car => car.id === updatedCar.id ? updatedCar : car)
 
         return newState
     })

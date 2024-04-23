@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { v4 as uuid } from 'uuid';
 
 const CarForm = ({ onNewCar, editCar, onUpdateCar }) => {
-  const [brand, setBrand] = useState('')
-  const [model, setModel] = useState('')
+  const [brand, setBrand] = useState('Brand')
+  const [model, setModel] = useState('Model')
   const [engine, setEngine] = useState('petrol')
-  const [basePrice, setBasePrice] = useState(0)
-  const [mileage, setMileage] = useState(0)
+  const [basePrice, setBasePrice] = useState(1000)
+  const [mileage, setMileage] = useState(100)
   const [color, setColor] = useState('black')
   const [image, setImage] = useState('')
   const [discount, setDiscount] = useState(0)
@@ -53,7 +53,6 @@ const CarForm = ({ onNewCar, editCar, onUpdateCar }) => {
       carData.id = editCar.id
       onUpdateCar(carData)
     } else {
-      carData.id = uuid()
       onNewCar(carData)
     }
 
