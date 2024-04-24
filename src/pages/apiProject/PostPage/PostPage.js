@@ -6,6 +6,7 @@ import { API_URL } from "../../../config"
 const PostPage = () => {
   const { id } = useParams()
   const [post, setPost] = useState(null)
+  const [postDeleted, setPostDeleted] = useState(false)
   
   useEffect(() => {
     const getPost = async () => {
@@ -26,16 +27,31 @@ const PostPage = () => {
 
   const author = user && <>Author: <Link to={`/api-project/users/${user.id}`}>{user.name}</Link></>
 
+  const deleteHandler = () => {
+    fetch(`${API_URL}/posts/${id}`, { method: 'DELETE' })
+    setPostDeleted(true)
+  }
+
   return (
     <div>
-      <div className="post-content">
-        <Link to={`/api-project/edit-post/${id}`}>Edit Post</Link>
-        <h1>{title}</h1>
-        {author}
-        <p>{body}</p>
-      </div>
+      {postDeleted ? (
+        <>
+          <h2>Post was deleted...</h2>
+          <Link to="/api-project/posts">Back to other posts</Link>
+        </>
+      ) : (
+        <>
+          <div className="post-content">
+            <Link to={`/api-project/edit-post/${id}`}>Edit Post</Link>
+            <button onClick={deleteHandler}>Delete Post</button>
+            <h1>{title}</h1>
+            {author}
+            <p>{body}</p>
+          </div>
 
-      <CommentsList data={comments} />
+          <CommentsList data={comments} />
+        </>
+      )}
     </div>
   )
 }
