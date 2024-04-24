@@ -19,6 +19,12 @@ const PageHeader = () => {
               </li>
               <li>
                 <NavLink to="/api-project/posts">Posts</NavLink>
+
+                <ul>
+                  <li>
+                    <NavLink to="/api-project/create-post">Create Post</NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
                 <NavLink to="/api-project/users">Users</NavLink>

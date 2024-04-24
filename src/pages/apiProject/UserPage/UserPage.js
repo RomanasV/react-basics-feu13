@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import PostsList from "../../../components/apiProject/PostsList/PostsList"
 import AlbumsList from "../../../components/apiProject/AlbumsList/AlbumsList"
+import { API_URL } from "../../../config"
 
 const UserPage = () => {
   const { id } = useParams()
@@ -11,17 +12,17 @@ const UserPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+      const userRes = await fetch(`${API_URL}/users/${id}`)
       const userData = await userRes.json()
 
       setUser(userData)
 
-      const postsRes = await fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts?_embed=comments`)
+      const postsRes = await fetch(`${API_URL}/posts?_embed=comments&userId=${id}`)
       const postsData = await postsRes.json()
 
       setPosts(postsData)
 
-      const albumsRes = await fetch(`https://jsonplaceholder.typicode.com/users/${id}/albums`)
+      const albumsRes = await fetch(`${API_URL}/albums?userId=${id}`)
       const albumsData = await albumsRes.json()
 
       setAlbums(albumsData)

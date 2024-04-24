@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import AlbumsList from "../../../components/apiProject/AlbumsList/AlbumsList"
+import { API_URL } from "../../../config"
 
 const AlbumsPage = () => {
   const [albums, setAlbums] = useState([])
 
   useEffect(() => {
     const getAlbums = async () => {
-      const res = await fetch('https://jsonplaceholder.typicode.com/albums?_expand=user&_embed=photos')
+      const res = await fetch(API_URL + '/albums?_embed=user&_embed=photos')
       const data = await res.json()
 
       setAlbums(data)

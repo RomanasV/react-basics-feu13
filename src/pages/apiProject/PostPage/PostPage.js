@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import CommentsList from "../../../components/apiProject/CommentsList/CommentsList"
+import { API_URL } from "../../../config"
 
 const PostPage = () => {
   const { id } = useParams()
@@ -8,7 +9,7 @@ const PostPage = () => {
   
   useEffect(() => {
     const getPost = async () => {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}?_expand=user&_embed=comments`)
+      const res = await fetch(`${API_URL}/posts/${id}?_embed=user&_embed=comments`)
       const data = await res.json()
 
       setPost(data)
@@ -28,6 +29,7 @@ const PostPage = () => {
   return (
     <div>
       <div className="post-content">
+        <Link to={`/api-project/edit-post/${id}`}>Edit Post</Link>
         <h1>{title}</h1>
         {author}
         <p>{body}</p>
