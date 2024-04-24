@@ -87,3 +87,35 @@ CRUD užduotys:
 12.4. Formos submit metu:
   12.4.1. Iš formos duomenų suformuluoti objektą pagal API reikalavimus.
   12.4.2. Su šiais duomenimis išsiųsti PUT užklausą pagal API reikalavimus.
+
+CREATE (post):
+1. User - /create-user
+2. Post - /create-post
+3. Album - /create-album
+4. Comment - /posts/:id
+5. Photo - /albums/:id
+
+READ single (get):
+1. User - /users/:id
+2. Post - /posts/:id
+3. Album - /albums/:id
+
+READ all (get):
+1. Users - /users
+2. Posts - /posts
+3. Albums - /albums
+4. Comments - /posts/:id
+5. Photos - /albums/:id
+
+UPDATE (put ir patch):
+1. User - /edit-user/:id
+2. Post - /edit-post/:id
+3. Album - /edit-album/:id
+4. Comment - /posts/:id
+
+DELETE (delete):
+1. User - /users/:id
+2. Post - /posts/:id
+3. Album - /albums/:id
+4. Comment - /posts/:id
+5. Photo - /albums/:id
