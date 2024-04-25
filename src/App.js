@@ -20,6 +20,8 @@ import AlbumPage from './pages/apiProject/AlbumPage/AlbumPage'
 import CreatePost from './pages/CreatePost/CreatePost'
 import EditPostPage from './pages/EditPostPage/EditPostPage'
 import { API_URL } from './config'
+import CreateUserPage from './pages/apiProject/CreateUserPage/CreateUserPage'
+import CreateAlbumPage from './pages/apiProject/CreateAlbumPage/CreateAlbumPage'
 
 const App = () => {
   return (
@@ -50,8 +52,8 @@ const App = () => {
         <Route path='/api-project/albums/:id' element={<AlbumPage />} />
 
         <Route path='/api-project/create-post' element={<CreatePost />} />
-        {/* <Route path='/api-project/create-user' element={<AlbumPage />} />
-        <Route path='/api-project/create-album' element={<AlbumPage />} /> */}
+        <Route path='/api-project/create-user' element={<CreateUserPage />} />
+        <Route path='/api-project/create-album' element={<CreateAlbumPage />} />
 
         <Route path='/api-project/edit-post/:id' element={<EditPostPage />} />
 
@@ -67,3 +69,84 @@ const App = () => {
 }
 
 export default App
+
+
+
+
+
+
+const updateUserHandler = async (userData) => {
+  const res = await fetch(`${API_URL}/users/${userData.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(userData),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  const updatedUser = await res.json()
+  console.log(updatedUser)
+}
+
+
+
+
+
+
+
+
+
+
+
+const updateCommentHandler = async (commentData) => {
+  const res = await fetch(`${API_URL}/comments/${commentData.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(commentData),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  const updatedComment = await res.json()
+  console.log(updatedComment)
+}
+
+
+
+
+
+
+
+
+
+const updateAlbumHandler = async (albumData) => {
+  const res = await fetch(`${API_URL}/albums/${albumData.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(albumData),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  const updatedAlbum = await res.json()
+  console.log(updatedAlbum)
+}
+
+
+
+
+
+
+
+const updatePhotoHandler = async (photoData) => {
+  const res = await fetch(`${API_URL}/photos/${photoData.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(photoData),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  const updatedPhoto = await res.json()
+  console.log(updatedPhoto)
+}

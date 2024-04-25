@@ -8,7 +8,15 @@ const PostPage = () => {
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState(null)
   const [postDeleted, setPostDeleted] = useState(false)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [content, setContent] = useState('')
   
+  const nameHandler = event => setName(event.target.value)
+  const emailHandler = event => setEmail(event.target.value)
+  const contentHandler = event => setContent(event.target.value)
+
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(`${API_URL}/posts/${id}?_embed=user`)
@@ -19,7 +27,7 @@ const PostPage = () => {
       const commentsRes = await fetch(`${API_URL}/comments?postId=${id}`)
       const commentsData = await commentsRes.json()
 
-      setComments(commentsData)
+      setComments(commentsData.reverse())
     }
 
     getData()
@@ -42,6 +50,33 @@ const PostPage = () => {
     setComments(prevState => prevState.filter(comment => comment.id !== id))
   }
 
+  const newCommentHandler = async event => {
+    event.preventDefault()
+
+    const newComment = {
+      postId: id,
+      name,
+      email,
+      body: content
+    }
+
+    const res = await fetch(`${API_URL}/comments`, {
+      method: 'POST',
+      body: JSON.stringify(newComment),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+  
+    const createdComment = await res.json()
+
+    setComments(prevState => [createdComment, ...prevState])
+
+    setName('')
+    setEmail('')
+    setContent('')
+  }
+
   return (
     <div>
       {postDeleted ? (
@@ -58,6 +93,25 @@ const PostPage = () => {
             {author}
             <p>{body}</p>
           </div>
+
+          <form onSubmit={newCommentHandler}>
+            <div className="form-control">
+              <label htmlFor="name">Post name:</label>
+              <input type="text" name="name" id="name" value={name} onChange={nameHandler} />
+            </div>
+
+            <div className="form-control">
+              <label htmlFor="email">Email:</label>
+              <input type="email" name="email" id="email" value={email} onChange={emailHandler} />
+            </div>
+
+            <div className="form-control">
+              <label htmlFor="content">Message:</label>
+              <textarea name="content" id="content" value={content} onChange={contentHandler}></textarea>
+            </div>
+
+            <button>Add A Comment</button>
+          </form>
 
           {comments ? <CommentsList onCommentDelete={deleteCommentHandler} data={comments} /> : <p>Loading comments...</p>}
         </>

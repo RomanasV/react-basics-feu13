@@ -28,9 +28,21 @@ const PageHeader = () => {
               </li>
               <li>
                 <NavLink to="/api-project/users">Users</NavLink>
+
+                <ul>
+                  <li>
+                    <NavLink to="/api-project/create-user">Create User</NavLink>
+                  </li>
+                </ul>
               </li>
               <li>
                 <NavLink to="/api-project/albums">Albums</NavLink>
+
+                <ul>
+                  <li>
+                    <NavLink to="/api-project/create-album">Create Album</NavLink>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>

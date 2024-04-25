@@ -13,10 +13,10 @@ const CommentItem = ({ data, onCommentDelete }) => {
 
   return (
     <div className="comment-item">
-      <button onClick={deleteCommentHandler}>Delete Comment</button>
       <h3>{name}</h3>
       <span>Author email: {email}</span>
       <p>{body}</p>
+      <button onClick={deleteCommentHandler}>Delete Comment</button>
     </div>
   )
 }
