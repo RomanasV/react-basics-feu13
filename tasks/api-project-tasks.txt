@@ -107,7 +107,7 @@ READ all (get):
 4. Comments - /posts/:id
 5. Photos - /albums/:id
 
-UPDATE (put ir patch):
+UPDATE (put arba patch):
 1. User - /edit-user/:id
 2. Post - /edit-post/:id
 3. Album - /edit-album/:id

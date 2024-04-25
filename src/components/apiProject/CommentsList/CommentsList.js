@@ -1,4 +1,6 @@
-const CommentsList = ({ data }) => {
+import CommentItem from "../CommentItem/CommentItem"
+
+const CommentsList = ({ data, onCommentDelete }) => {
   if (!data) {
     return ''
   }
@@ -11,13 +13,7 @@ const CommentsList = ({ data }) => {
     <div className="comments-list">
       <h2>Comments:</h2>
       
-      {data.map(comment => (
-        <div className="comment-item" key={comment.id}>
-          <h3>{comment.name}</h3>
-          <span>Author email: {comment.email}</span>
-          <p>{comment.body}</p>
-        </div>
-      ))}
+      {data.map(comment => <CommentItem onCommentDelete={onCommentDelete} key={comment.id} data={comment} />)}
     </div>
   )
 }

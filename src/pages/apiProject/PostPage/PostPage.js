@@ -6,30 +6,40 @@ import { API_URL } from "../../../config"
 const PostPage = () => {
   const { id } = useParams()
   const [post, setPost] = useState(null)
+  const [comments, setComments] = useState(null)
   const [postDeleted, setPostDeleted] = useState(false)
   
   useEffect(() => {
-    const getPost = async () => {
-      const res = await fetch(`${API_URL}/posts/${id}?_embed=user&_embed=comments`)
+    const getData = async () => {
+      const res = await fetch(`${API_URL}/posts/${id}?_embed=user`)
       const data = await res.json()
 
       setPost(data)
+
+      const commentsRes = await fetch(`${API_URL}/comments?postId=${id}`)
+      const commentsData = await commentsRes.json()
+
+      setComments(commentsData)
     }
 
-    getPost()
+    getData()
   }, [id])
 
   if (!post) {
     return <p>Loading...</p>
   }
 
-  const { title, body, user, comments } = post
+  const { title, body, user } = post
 
   const author = user && <>Author: <Link to={`/api-project/users/${user.id}`}>{user.name}</Link></>
 
   const deleteHandler = () => {
     fetch(`${API_URL}/posts/${id}`, { method: 'DELETE' })
     setPostDeleted(true)
+  }
+
+  const deleteCommentHandler = (id) => {
+    setComments(prevState => prevState.filter(comment => comment.id !== id))
   }
 
   return (
@@ -49,7 +59,7 @@ const PostPage = () => {
             <p>{body}</p>
           </div>
 
-          <CommentsList data={comments} />
+          {comments ? <CommentsList onCommentDelete={deleteCommentHandler} data={comments} /> : <p>Loading comments...</p>}
         </>
       )}
     </div>

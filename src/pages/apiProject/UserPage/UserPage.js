@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import PostsList from "../../../components/apiProject/PostsList/PostsList"
 import AlbumsList from "../../../components/apiProject/AlbumsList/AlbumsList"
 import { API_URL } from "../../../config"
@@ -9,6 +9,7 @@ const UserPage = () => {
   const [user, setUser] = useState(null)
   const [posts, setPosts] = useState([])
   const [albums, setAlbums] = useState([])
+  const [userIsDeleted, setUserIsDeleted] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -37,8 +38,29 @@ const UserPage = () => {
 
   const { name, address, email, phone, website } = user
 
+  const deleteUserHandler = () => {
+    fetch(`${API_URL}/users/${id}`, {
+      method: 'DELETE',
+    })
+
+    setUserIsDeleted(true)
+  }
+
+  if (userIsDeleted) {
+    return (
+      <div>
+        <h2>User was removed</h2>
+        <Link to="/api-project/users">Go back to users page</Link>
+      </div>
+    )
+  }
+
   return (
     <div>
+      <div className="user-controls">
+        <button onClick={deleteUserHandler}>Remove User</button>
+      </div>
+
       <h1>{id}. {name}</h1>
 
       <PostsList data={posts} title={`Posts of ${name}:`} />

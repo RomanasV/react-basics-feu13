@@ -19,6 +19,7 @@ import UserPage from './pages/apiProject/UserPage/UserPage'
 import AlbumPage from './pages/apiProject/AlbumPage/AlbumPage'
 import CreatePost from './pages/CreatePost/CreatePost'
 import EditPostPage from './pages/EditPostPage/EditPostPage'
+import { API_URL } from './config'
 
 const App = () => {
   return (
