@@ -22,6 +22,7 @@ import EditPostPage from './pages/EditPostPage/EditPostPage'
 import { API_URL } from './config'
 import CreateUserPage from './pages/apiProject/CreateUserPage/CreateUserPage'
 import CreateAlbumPage from './pages/apiProject/CreateAlbumPage/CreateAlbumPage'
+import EditUserPage from './pages/apiProject/EditUserPage/EditUserPage'
 
 const App = () => {
   return (
@@ -42,10 +43,10 @@ const App = () => {
         <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='/api/ai' element={<AIPage />} />
         <Route path='/api-project/' element={<HomePage />} />
+
         <Route path='/api-project/posts' element={<PostsPage />} />
         <Route path='/api-project/users' element={<UsersPage />} />
         <Route path='/api-project/albums' element={<AlbumsPage />} />
-
 
         <Route path='/api-project/posts/:id' element={<PostPage />} />
         <Route path='/api-project/users/:id' element={<UserPage />} />
@@ -56,6 +57,8 @@ const App = () => {
         <Route path='/api-project/create-album' element={<CreateAlbumPage />} />
 
         <Route path='/api-project/edit-post/:id' element={<EditPostPage />} />
+        <Route path='/api-project/edit-user/:id' element={<EditUserPage />} />
+        {/* <Route path='/api-project/edit-album/:id' element={<EditPostPage />} /> */}
 
         <Route path='*' element={
           <div>
@@ -75,18 +78,6 @@ export default App
 
 
 
-const updateUserHandler = async (userData) => {
-  const res = await fetch(`${API_URL}/users/${userData.id}`, {
-    method: 'PUT',
-    body: JSON.stringify(userData),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
-
-  const updatedUser = await res.json()
-  console.log(updatedUser)
-}
 
 
 

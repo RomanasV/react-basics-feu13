@@ -613,10 +613,10 @@
       "userId": "5"
     },
     {
-      "id": "6568",
-      "title": "ttdfgdfg",
+      "title": "edited",
       "body": "dfgdfg",
-      "userId": "5"
+      "userId": "5",
+      "id": "6568"
     },
     {
       "id": "ecbe",
@@ -832,6 +832,29 @@
         "catchPhrase": "Centralized empowering task-force",
         "bs": "target end-to-end models"
       }
+    },
+    {
+      "name": "fsdfsdf (redaguota 2)",
+      "username": "",
+      "email": "",
+      "address": {
+        "street": "",
+        "suite": "",
+        "city": "",
+        "zipcode": "",
+        "geo": {
+          "lat": "",
+          "lng": ""
+        }
+      },
+      "phone": "",
+      "website": "",
+      "company": {
+        "name": "",
+        "catchPhrase": "",
+        "bs": ""
+      },
+      "id": "b34f"
     }
   ],
   "albums": [

@@ -61,7 +61,9 @@ const PostForm = ({ onPostSubmit, editPostData }) => {
         </select>
       </div>
 
-      <button type="submit" disabled={user === 'empty' ? true : false}>Create Post</button>
+      <button type="submit" disabled={user === 'empty'}>
+        {editPostData ? 'Edit post' : 'Create Post'}
+      </button>
     </form>
   )
 }

@@ -59,6 +59,7 @@ const UserPage = () => {
     <div>
       <div className="user-controls">
         <button onClick={deleteUserHandler}>Remove User</button>
+        <Link to={`/api-project/edit-user/${id}`}>Edit User</Link>
       </div>
 
       <h1>{id}. {name}</h1>
