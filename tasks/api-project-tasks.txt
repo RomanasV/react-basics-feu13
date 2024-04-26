@@ -119,3 +119,18 @@ DELETE (delete):
 3. Album - /albums/:id
 4. Comment - /posts/:id
 5. Photo - /albums/:id
+
+
+13. Sukurti naują API endpoint'ą - categories.
+
+13.1. Jame turi būti saugoma:
+  13.1.0. Kategorijos id.
+  13.1.1. Kategorijos pavadinimas.
+  13.1.2. Kategorijos aprašymas.
+  13.1.3. Kategorijos paveikslėlio nuoroda.
+
+13.2. Sukurti puslapį, kuriame atvaizduojamos visos kategorijos (GET metodas - /categories)
+13.3. Sukurti puslapį, kuriame atvaizduojama viena kategorija ir jos informacija (GET metodas - /categories/:id)
+13.4. Sukurti puslapį, kuriame būtų galima sukurti kategoriją (POST metodas - /create-category)
+13.5. Sukurti puslapį, kuriame būtų galima redaguoti kategoriją (PUT metodas - /edit-category/:id)
+13.6. Kategorijos puslapyje pridėti galimybę kategoriją ištrinti (DELETE metodas)

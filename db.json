@@ -11873,6 +11873,19 @@
       "thumbnailUrl": "https://via.placeholder.com/600/92c952"
     }
   ],
+  "categories": [
+    {
+      "id": "1",
+      "title": "Pavadinimas",
+      "description": "Aprašymas",
+      "image": ""
+    }
+  ],
+
+
+
+
+
   "cars": [
     {
       "id": "1",
