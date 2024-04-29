@@ -30,7 +30,7 @@ const App = () => {
       <PageHeader />
 
       <Routes>
-        <Route path='/' element={<h1>My Page</h1>} />
+        <Route path='/' element={<h1>My Page!</h1>} />
         <Route path='/huddle' element={<HuddlePage />} />
         <Route path='/testimonials' element={<Testimonials />} />
         <Route path='/codeacademy' element={<h1>Code Academy page</h1>} />
