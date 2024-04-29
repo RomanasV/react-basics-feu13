@@ -134,3 +134,9 @@ DELETE (delete):
 13.4. Sukurti puslapį, kuriame būtų galima sukurti kategoriją (POST metodas - /create-category)
 13.5. Sukurti puslapį, kuriame būtų galima redaguoti kategoriją (PUT metodas - /edit-category/:id)
 13.6. Kategorijos puslapyje pridėti galimybę kategoriją ištrinti (DELETE metodas)
+
+13.7. Pridėti galimybę post'ams priskirti kategoriją. Post'o objektui pridėti categoriId property. Jo reikšmė turėtų būti kategorijos id.
+13.7.1. Post'o puslapyje turėtų būti atvaizduota jo kategorija, jeigu tokią turi. Jeigu neturi, tai kategorijos nurodyti nereikia. Tai turėtų būti nuoroda į nurodytos kategorijos puslapį.
+13.7.2. Kuriant ir redaguojant post'ą, galima pridėti/pakeisti jo kategoriją.
+
+13.8. Kategorijos puslapyje turėtų būti atvaizduoti visi tos kategorijos post'ai (tokiu pačiu formatu, kaip ir post'ų puslapyje).

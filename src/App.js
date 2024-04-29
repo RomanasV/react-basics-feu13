@@ -29,6 +29,8 @@ const App = () => {
     <>
       <PageHeader />
 
+      <h1>My Page</h1>
+
       <Routes>
         <Route path='/' element={<h1>Hello World</h1>} />
         <Route path='/huddle' element={<HuddlePage />} />
