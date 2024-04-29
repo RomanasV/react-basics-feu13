@@ -140,3 +140,6 @@ DELETE (delete):
 13.7.2. Kuriant ir redaguojant post'ą, galima pridėti/pakeisti jo kategoriją.
 
 13.8. Kategorijos puslapyje turėtų būti atvaizduoti visi tos kategorijos post'ai (tokiu pačiu formatu, kaip ir post'ų puslapyje).
+
+
+Test test test
