@@ -1,0 +1,41 @@
+1. Mokyklos schema:
+  1.1. Pavadinimas
+  1.2. Adresas
+  1.3. Direktorius
+  1.4. Mokių skaičius (automatiškai paimti iš DB)
+  1.5. Internetinis puslapis
+  1.6. Tipas (pagrindine, progimnazija, gimnazija)
+  1.7. Tipas (valstybinė ar privati)
+  1.8. Kontaktai
+  1.9. Miestas (relationship)
+
+2. Miesto schema:
+  2.1. Pavadinimas
+
+3. Mokiniai schema:
+  3.1. Vardas
+  3.2. Pavardė
+  3.3. Kontaktai
+  3.4. Gimimo metai
+  3.5. Relationship (mokykla)
+  3.6. Tėčio/mamos vardas
+  3.7. Tėčio/mamos kontaktai
+
+4. Mokytojų schema:
+  4.1. Vardas
+  4.2. Pavardė
+  4.3. Kontaktai
+  4.4. Gimimo metai
+  4.5. Relationship (mokykla)
+  4.6. Ką mokina (ateity)
+
+
+Puslapiai:
+  1. Mokyklos
+  2. Mokykla (mokiniai ir mokytojai)
+  3. Mokytojai
+  4. Mokytojo
+  5. Mokinių
+  6. Mokinio
+  7. Miestai
+  8. Miestas (miesto mokyklų sąrašas)

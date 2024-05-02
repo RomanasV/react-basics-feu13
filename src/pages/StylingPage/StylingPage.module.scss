@@ -1,0 +1,20 @@
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.invalid label {
+  color: red;
+}
+
+.invalid input {
+  border-color: red;
+  background-color: pink;
+}
