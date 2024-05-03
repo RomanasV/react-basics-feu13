@@ -1,0 +1,102 @@
+User 1:
+ - Post 1
+ - Post 2
+ - Post 3
+
+User 2:
+ - Post 4
+ - Post 5
+
+
+Author 1:
+ - Book 1
+ - Book 2
+
+Author 2:
+ - Book 3
+ - Book 4
+
+Author 3:
+ - Book 1
+ - Book 4
+
+
+
+BookAuthors 1:
+  Book 1
+  Author 1
+
+BookAuthors 2:
+  Book 2
+  Author 1
+
+BookAuthors 3:
+  Book 3
+  Author 2
+
+BookAuthors 4:
+  Book 4
+  Author 2
+
+BookAuthors 5:
+  Book 1
+  Author 3
+
+BookAuthors 6:
+  Book 4
+  Author 3
+
+
+
+Category 1
+  - Book 1
+  - Book 2
+
+Category 2
+  - Book 3
+  - Book 4
+
+Category 3
+  - Book 1
+  - Book 2
+
+BookCategories 1:
+  - Book 1
+  - Category 1
+
+BookCategories 2:
+  - Book 2
+  - Category 1
+
+BookCategories 3:
+  - Book 3
+  - Category 2
+
+
+
+1. Knygos schema:
+ 1.1. Pavadinimas
+ 1.2. Trumpas aprašymas
+ 1.3. Pavadinimas originalo kalba (jeigu versta knyga)
+ 1.4. Autorius (relationship su autorius ir knygas jungiančių endpoint)
+ 1.5. Žanrai (relationship su žanru ir knygas jungiančių endpoint)
+ 1.6. Kalba (relationship)
+
+2. Puslapiai:
+ 2.1. Knyga
+ 2.2. Knygos
+ 2.3. Autorius (autoriaus knygos)
+ 2.4. Autoriai
+ 2.5. Žanrai
+ 2.6. Žanras (žanro knygos)
+ 2.7. Kalba (knygų sąrašas pagal nurodytą kalbą)
+
+3. Autoriaus schema:
+ 3.1. Vardas
+ 3.2. Pavardė
+ 3.3. Gimimo metai
+ 3.4. Bio
+ 3.5. Slapyvardis (jeigu turi)
+ 3.6. Pilietybė
+ 3.7. Kalba/kalbos?
+

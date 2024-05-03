@@ -23,6 +23,7 @@ import { API_URL } from './config'
 import CreateUserPage from './pages/apiProject/CreateUserPage/CreateUserPage'
 import CreateAlbumPage from './pages/apiProject/CreateAlbumPage/CreateAlbumPage'
 import EditUserPage from './pages/apiProject/EditUserPage/EditUserPage'
+import StylingPage from './pages/StylingPage/StylingPage'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<h1>Hello world</h1>} />
+        <Route path='/styling' element={<StylingPage />} />
         <Route path='/huddle' element={<HuddlePage />} />
         <Route path='/testimonials' element={<Testimonials />} />
         <Route path='/codeacademy' element={<h1>Code Academy page</h1>} />
