@@ -25,10 +25,20 @@ import CreateAlbumPage from './pages/apiProject/CreateAlbumPage/CreateAlbumPage'
 import EditUserPage from './pages/apiProject/EditUserPage/EditUserPage'
 import StylingPage from './pages/StylingPage/StylingPage'
 
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
+  const notify = () => {
+    toast('Labas', {})
+  }
+
   return (
     <>
       <PageHeader />
+
+      <button onClick={notify}>Click</button>
+      
 
       <Routes>
         <Route path='/' element={<h1>Hello world</h1>} />
@@ -69,6 +79,8 @@ const App = () => {
           </div>
         } />
       </Routes>
+
+      <ToastContainer position="bottom-right" />
     </>
   )
 }

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
 import { API_URL } from "../../config"
 import { useNavigate } from "react-router-dom"
 import PostForm from "../../components/apiProject/PostForm/PostForm"
+import { toast } from "react-toastify"
 
 const CreatePost = () => {
   const navigate = useNavigate()
@@ -16,6 +16,8 @@ const CreatePost = () => {
     })
 
     const createdPost = await res.json()
+
+    toast.success('Post was created!')
 
     navigate('/api-project/posts/' + createdPost.id)
   }
