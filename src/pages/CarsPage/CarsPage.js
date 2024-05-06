@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { v4 as uuid } from 'uuid';
 import CarsList from "../../components/CarsList/CarsList";
 import CarForm from "../../components/CarForm/CarForm";
+import Container from "../../components/Container/Container";
 
 const CarsPage = () => {
   const INITIAL_CARS = [
@@ -179,11 +180,11 @@ const CarsPage = () => {
   }
 
   return (
-    <div>
+    <Container>
       <CarForm onUpdateCar={updateCarHandler} editCar={editCar} onNewCar={newCarHandler} />
 
       <CarsList onEditCar={editCarHandler} onDeleteCar={deleteCarHandler} data={cars} />
-    </div>
+    </Container>
   )
 }
 

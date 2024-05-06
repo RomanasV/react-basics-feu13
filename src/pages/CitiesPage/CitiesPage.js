@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { v4 as uuid } from 'uuid';
 import CityItem from "../../components/CityItem/CityItem"
+import Container from "../../components/Container/Container";
 
 const CitiesPage = () => {
   const INITIAL_CITIES = [
@@ -147,7 +148,7 @@ const CitiesPage = () => {
   }
 
   return (
-    <div>
+    <Container>
       <form onSubmit={newCityHandler}>
         <div className="form-control">
           <label htmlFor="name">City name:</label>
@@ -194,7 +195,7 @@ const CitiesPage = () => {
           />
         ))}
       </div>
-    </div>
+    </Container>
   )
 }
 

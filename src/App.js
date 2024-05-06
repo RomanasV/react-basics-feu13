@@ -27,6 +27,7 @@ import StylingPage from './pages/StylingPage/StylingPage'
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import ChildrenProp from './pages/ChildrenProp/ChildrenProp'
 
 const App = () => {
   const notify = () => {
@@ -55,6 +56,7 @@ const App = () => {
         <Route path='/api/dogs' element={<DogsPage />} />
         <Route path='/api/ai' element={<AIPage />} />
         <Route path='/api-project/' element={<HomePage />} />
+        <Route path='/children-prop/' element={<ChildrenProp />} />
 
         <Route path='/api-project/posts' element={<PostsPage />} />
         <Route path='/api-project/users' element={<UsersPage />} />

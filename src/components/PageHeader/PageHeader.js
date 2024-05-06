@@ -66,6 +66,9 @@ const PageHeader = () => {
             <NavLink to="/huddle">Huddle</NavLink>
           </li>
           <li>
+            <NavLink to="/children-prop">Children Prop</NavLink>
+          </li>
+          <li>
             <NavLink to="/testimonials">Testimonials</NavLink>
           </li>
           <li>
